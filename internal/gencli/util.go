@@ -33,11 +33,13 @@ const (
 )
 
 func toLongUsage(cmt string) string {
-	return shorten(cmt, LongDescMax)
+	return cmt
+	//return shorten(cmt, LongDescMax)
 }
 
 func toShortUsage(cmt string) string {
-	return shorten(cmt, ShortDescMax)
+	return cmt
+	//return shorten(cmt, ShortDescMax)
 }
 
 func shorten(cmt string, limit int) string {

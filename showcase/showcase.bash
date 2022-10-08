@@ -61,7 +61,7 @@ protoc \
 	google/showcase/v1beta1/compliance.proto
 
 hostos=$(go env GOHOSTOS)
-hostarch=$(go env GOHOSTARCH)
+hostarch=amd64
 
 pushd gen/github.com/googleapis/gapic-showcase
 go mod init github.com/googleapis/gapic-showcase
@@ -77,6 +77,7 @@ popd
 
 go mod edit -replace=github.com/googleapis/gapic-showcase=./gen/github.com/googleapis/gapic-showcase
 
+echo "Downloading https://github.com/googleapis/gapic-showcase/releases/download/v$SHOWCASE_SEMVER/gapic-showcase-$SHOWCASE_SEMVER-$hostos-$hostarch.tar.gz" 
 curl -sSL https://github.com/googleapis/gapic-showcase/releases/download/v$SHOWCASE_SEMVER/gapic-showcase-$SHOWCASE_SEMVER-$hostos-$hostarch.tar.gz | tar xz
 curl -sSL -O https://github.com/googleapis/gapic-showcase/releases/download/v$SHOWCASE_SEMVER/compliance_suite.json
 
