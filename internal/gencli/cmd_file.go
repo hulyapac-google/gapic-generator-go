@@ -339,16 +339,7 @@ var {{$methodCmdVar}} = &cobra.Command{
 
 		{{ if .IsLRO }}
 		if !{{ $followVar }} {
-			var s interface{}
-			s = resp.Name()
-
-			if OutputJSON {
-				d := make(map[string]string)
-				d["operation"] = resp.Name()
-				s = d
-			}
-
-			printMessage(s)
+			fmt.Println("Operation: ", resp.Name())
 			return err
 		}
 
